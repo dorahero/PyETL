@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>l04</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  <!--<meta http-equiv="refresh" content="3">-->
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+th, td {
+  padding: 6px;
+}
+</style>
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|Raleway:400,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Template Main CSS File -->
+  <link href="../static/css/style.css" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="../static/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+
+  <!-- =======================================================
+    Template Name: MyPortfolio
+    Template URL: https://bootstrapmade.com/myportfolio-bootstrap-portfolio-website-template/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com/
+  ======================================================= -->
+</head>
+
+<body>
+
+  <nav class="navbar navbar-light custom-navbar">
+    <div class="container">
+      <h5><p align="center">Result of skill...</p></h5>
+        <form action="/hw104_w" method="get">
+            <div class="col-md-12 form-group">
+                  <p align="center">
+                    <button type="submit" class="readmore d-block w-100">See the Result again</button>
+                  </p>
+            </div>
+        </form>
+        <form action="/hw104" method="get">
+            <div class="col-md-12 form-group">
+                  <p align="center">
+                    <button type="submit" class="readmore d-block w-100">Want to try again?</button>
+                  </p>
+            </div>
+        </form>
+    </div>
+  </nav>
+
+            <div>
+                <table class="center">
+                    {% for dat in skill_data %}
+                        <tr>
+                            {% for d in dat %}
+                            <td nowrap="nowrap">
+                                <span style="font-size:16px;">{{ d }}</span>
+                            </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+  <!-- Vendor JS Files -->
+  <script src="../static/vendor/jquery/jquery.min.js"></script>
+  <script src="../static/vendor/jquery/jquery-migrate.min.js"></script>
+  <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../static/vendor/easing/easing.min.js"></script>
+  <script src="../static/vendor/php-email-form/validate.js"></script>
+  <script src="../static/vendor/isotope/isotope.pkgd.min.js"></script>
+  <script src="../static/vendor/aos/aos.js"></script>
+  <script src="../static/vendor/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>
