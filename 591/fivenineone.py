@@ -15,12 +15,16 @@ region = {'台北市': 1, '新北市': 3, '桃園市': 6, '新竹市': 4,
           '高雄市': 17, '台南市': 15, '嘉義市': 12, '屏東縣': 19,
           '嘉義縣': 13, '花蓮縣': 23, '台東縣': 22, '金門縣': 25,
           '澎湖縣': 24}
-tp_list = os.listdir('./台北市')
-print(tp_list)
+# tp_list = os.listdir('./台北市')
+# print(tp_list)
 # &firstRow=30
-page = ''
-page_init = 0
 for i, r in enumerate(region):
+    page = ''
+    page_init = 0
+    if not os.path.exists(r):
+        os.makedirs(r)
+    if i < 8:
+        continue
     city_json = []
     region_id = region[r]
     ss = requests.session()
@@ -37,26 +41,26 @@ for i, r in enumerate(region):
             print('only one page')
             print('or the end')
         # print(url)
-#         s = '''Connection: keep-alive
-# Cookie: is_new_index=1; is_new_index_redirect=1; T591_TOKEN=i25jj8ovsqdps1ouj4gpondhl3; _ga=GA1.3.581102241.1596159674; tw591__privacy_agree=0; _ga=GA1.4.581102241.1596159674; _fbp=fb.2.1596159722085.570355555; user_index_role=1; __auc=3bbe77e3173a28c96852f6b6668; webp=1; PHPSESSID=42ffu482f5qnpni5lk10mrvl70; _gid=GA1.3.619074578.1599703039; index_keyword_search_analysis=%7B%22role%22%3A%221%22%2C%22type%22%3A%221%22%2C%22keyword%22%3A%22%22%2C%22selectKeyword%22%3A%22%22%2C%22menu%22%3A%22%22%2C%22hasHistory%22%3A0%2C%22hasPrompt%22%3A0%2C%22history%22%3A0%7D; c10f3143a018a0513ebe1e8d27b5391c=1; _gid=GA1.4.619074578.1599703039; new_rent_list_kind_test=0; DETAIL[1][9722961]=1; __asc=fd1665f017475c5f98fade2a007; urlJumpIp={}; urlJumpIpByTxt=%E5%8F%B0%E5%8C%97%E5%B8%82; last_search_type=1; XSRF-TOKEN=eyJpdiI6IlVRZWw1dFM5R05tR1AxeG5SVjhZV3c9PSIsInZhbHVlIjoiamQzMUNza0ZrY2dSOEg0UlFkdEdITWRhenNDYVRUYTdoOGIydzJFNVd4WDVGTFY2N1RyMTBDTGlmTnh1MTlXMlRSVFA3YmhWMHVMbE5XS1ZmS1pcL1JBPT0iLCJtYWMiOiI4NTE0NzIxNWI4MjYwZjNhNGYzYWMxMzE3MmM2ZDJmNGU3ZjVjZGEyODM3YTQyNTEzYTVjZTU4NWI0NDU0NjZhIn0%3D; DETAIL[1][9688505]=1; user_browse_recent=a%3A3%3A%7Bi%3A0%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229688505%22%3B%7Di%3A1%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229722961%22%3B%7Di%3A2%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%227157274%22%3B%7D%7D; 591_new_session=eyJpdiI6ImR3RnUyR0RLNTg5TENiNWVQak00TkE9PSIsInZhbHVlIjoiNmpBTXdHOFwva0ZKb3JTVnhtVndaZkgyQjR2K0RcL2t0dWVRU2NVMHQzMmY3aVpFR1NYQlZVQmE4VnJYTW16RUlObGZKYXdsM3l0ZG8xdmFPODdoYVFBZz09IiwibWFjIjoiY2U1YzFlZDJkOTYwYmRiODY1M2QxNDA0ODlkYWMwYWJkYjAwYmFhOGIxMjQwNzYyZWZiZjYyMDQwNjQ0NTcwZSJ9; localTime=2; _gat_UA-97423186-1=1
-# Host: rent.591.com.tw
-# Referer: https://rent.591.com.tw/?kind=0&region={}
-# Sec-Fetch-Dest: empty
-# Sec-Fetch-Mode: cors
-# Sec-Fetch-Site: same-origin
-# User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36
-# X-CSRF-TOKEN: DnMrA1qRBtAcsAudhvZv8r05f4WNMtKhkHPQ40p4
-# X-Requested-With: XMLHttpRequest'''.format(region_id, region_id)
         s = '''Connection: keep-alive
-Cookie: is_new_index=1; is_new_index_redirect=1; T591_TOKEN=i25jj8ovsqdps1ouj4gpondhl3; _ga=GA1.3.581102241.1596159674; tw591__privacy_agree=0; _ga=GA1.4.581102241.1596159674; _fbp=fb.2.1596159722085.570355555; __auc=3bbe77e3173a28c96852f6b6668; webp=1; PHPSESSID=42ffu482f5qnpni5lk10mrvl70; _gid=GA1.3.619074578.1599703039; _gid=GA1.4.619074578.1599703039; new_rent_list_kind_test=0; localTime=2; imgClick=9688505; last_search_type=1; index_keyword_search_analysis=%7B%22role%22%3A%222%22%2C%22type%22%3A1%2C%22keyword%22%3A%22%22%2C%22selectKeyword%22%3A%22%22%2C%22menu%22%3A%22%22%2C%22hasHistory%22%3A0%2C%22hasPrompt%22%3A0%2C%22history%22%3A0%7D; user_index_role=1; urlJumpIp={}; urlJumpIpByTxt=%E5%9F%BA%E9%9A%86%E5%B8%82; user_browse_recent=a%3A5%3A%7Bi%3A0%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229684598%22%3B%7Di%3A1%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229669233%22%3B%7Di%3A2%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229691641%22%3B%7Di%3A3%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A8%3Bs%3A7%3A%22post_id%22%3Bi%3A121199%3B%7Di%3A4%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229803072%22%3B%7D%7D; c10f3143a018a0513ebe1e8d27b5391c=1; _gat=1; _dc_gtm_UA-97423186-1=1; _gat_UA-97423186-1=1; 591_new_session=eyJpdiI6IlcwYzR0WmtmajVHTlhTYmJldGtZSHc9PSIsInZhbHVlIjoidHFTRTRvQ2QxQ1k3RHVUSWtndUhKQmUzNnpoZFlMaWNodDJNaHd1cjc2Z3NjWXNqTnNHalRoRHE3NGkzb3NRTGRQc0pXTXdcL21mSnZyYUJUREtpQ2lnPT0iLCJtYWMiOiJiZDQ3YjI1YjY1NWQxMjEwYTk2NGYxOWRmZGYwZDBkZDQ2MmZlMzdhNzc0ZmQ3OTQ0ZDdhNWU1MTM2YzNmYWY0In0%3D
+Cookie: is_new_index=1; is_new_index_redirect=1; T591_TOKEN=i25jj8ovsqdps1ouj4gpondhl3; _ga=GA1.3.581102241.1596159674; tw591__privacy_agree=0; _ga=GA1.4.581102241.1596159674; _fbp=fb.2.1596159722085.570355555; __auc=3bbe77e3173a28c96852f6b6668; webp=1; PHPSESSID=42ffu482f5qnpni5lk10mrvl70; _gid=GA1.3.619074578.1599703039; _gid=GA1.4.619074578.1599703039; new_rent_list_kind_test=0; localTime=2; imgClick=9688505; last_search_type=1; index_keyword_search_analysis=%7B%22role%22%3A%222%22%2C%22type%22%3A1%2C%22keyword%22%3A%22%22%2C%22selectKeyword%22%3A%22%22%2C%22menu%22%3A%22%22%2C%22hasHistory%22%3A0%2C%22hasPrompt%22%3A0%2C%22history%22%3A0%7D; urlJumpIp={}; urlJumpIpByTxt=%E5%8F%B0%E5%8C%97%E5%B8%82; c10f3143a018a0513ebe1e8d27b5391c=1; user_index_role=2; user_browse_recent=a%3A5%3A%7Bi%3A0%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A8%3Bs%3A7%3A%22post_id%22%3Bi%3A121199%3B%7Di%3A1%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229811877%22%3B%7Di%3A2%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229681418%22%3B%7Di%3A3%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229750396%22%3B%7Di%3A4%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229789018%22%3B%7D%7D; _gat=1; _gat_newHousingOld=1; _dc_gtm_UA-97423186-1=1; 591_new_session=eyJpdiI6InJEQUUxMURyTnNlMnF0eFgyWDhHWVE9PSIsInZhbHVlIjoiRmVydWZRMmRIbmc4UG16dnk0TVlYdXFMNEhZN1Z2Qyt6TmpjcUFIWU9lQXRKNVNSd3NINnBxVURSUnJhVXp6aVRFMXB6YWQwaHcxaVwvWWdkcUR1Wk93PT0iLCJtYWMiOiI2OTAwNzcyNGVmYWI3ODE1ODFmMzJkNGUyNDdmOTVmNDFhNjFjNzU0MzI0ZTkyMDI0NGRmODE5MWNjNzMyNmE0In0%3D
 Host: rent.591.com.tw
 Referer: https://rent.591.com.tw/?kind=0&region={}
 Sec-Fetch-Dest: empty
 Sec-Fetch-Mode: cors
 Sec-Fetch-Site: same-origin
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36
-X-CSRF-TOKEN: FyqefWxcBBYCfhOM3RTCBxhZq4TXJ4IkoFACgdeq
+X-CSRF-TOKEN: vnuOJQFUHijhCcK2m1NVh50haMkFu9b9W5GDGhfA
 X-Requested-With: XMLHttpRequest'''.format(region_id, region_id)
+#         s = '''Connection: keep-alive
+# Cookie: is_new_index=1; is_new_index_redirect=1; T591_TOKEN=i25jj8ovsqdps1ouj4gpondhl3; _ga=GA1.3.581102241.1596159674; tw591__privacy_agree=0; _ga=GA1.4.581102241.1596159674; _fbp=fb.2.1596159722085.570355555; __auc=3bbe77e3173a28c96852f6b6668; webp=1; PHPSESSID=42ffu482f5qnpni5lk10mrvl70; _gid=GA1.3.619074578.1599703039; _gid=GA1.4.619074578.1599703039; new_rent_list_kind_test=0; localTime=2; imgClick=9688505; last_search_type=1; index_keyword_search_analysis=%7B%22role%22%3A%222%22%2C%22type%22%3A1%2C%22keyword%22%3A%22%22%2C%22selectKeyword%22%3A%22%22%2C%22menu%22%3A%22%22%2C%22hasHistory%22%3A0%2C%22hasPrompt%22%3A0%2C%22history%22%3A0%7D; user_index_role=1; urlJumpIp={}; urlJumpIpByTxt=%E5%9F%BA%E9%9A%86%E5%B8%82; user_browse_recent=a%3A5%3A%7Bi%3A0%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229684598%22%3B%7Di%3A1%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229669233%22%3B%7Di%3A2%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229691641%22%3B%7Di%3A3%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A8%3Bs%3A7%3A%22post_id%22%3Bi%3A121199%3B%7Di%3A4%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229803072%22%3B%7D%7D; c10f3143a018a0513ebe1e8d27b5391c=1; _gat=1; _dc_gtm_UA-97423186-1=1; _gat_UA-97423186-1=1; 591_new_session=eyJpdiI6IlcwYzR0WmtmajVHTlhTYmJldGtZSHc9PSIsInZhbHVlIjoidHFTRTRvQ2QxQ1k3RHVUSWtndUhKQmUzNnpoZFlMaWNodDJNaHd1cjc2Z3NjWXNqTnNHalRoRHE3NGkzb3NRTGRQc0pXTXdcL21mSnZyYUJUREtpQ2lnPT0iLCJtYWMiOiJiZDQ3YjI1YjY1NWQxMjEwYTk2NGYxOWRmZGYwZDBkZDQ2MmZlMzdhNzc0ZmQ3OTQ0ZDdhNWU1MTM2YzNmYWY0In0%3D
+# Host: rent.591.com.tw
+# Referer: https://rent.591.com.tw/?kind=0&region={}
+# Sec-Fetch-Dest: empty
+# Sec-Fetch-Mode: cors
+# Sec-Fetch-Site: same-origin
+# User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36
+# X-CSRF-TOKEN: FyqefWxcBBYCfhOM3RTCBxhZq4TXJ4IkoFACgdeq
+# X-Requested-With: XMLHttpRequest'''.format(region_id, region_id)
         cor_dict = {}
         headers = {r.split(': ')[0]: r.split(': ')[1] for r in s.split('\n')}
         # para = {"SPNM": "CWA050Q_2018",
@@ -75,13 +79,18 @@ X-Requested-With: XMLHttpRequest'''.format(region_id, region_id)
         print(page)
         # page =
         # # soup = BeautifulSoup(res.text, 'html.parser')
+        tp_list = os.listdir('./{}'.format(r))
+        print(len(tp_list))
+        if len(tp_list) >= 1000:
+            break
         for js in json_data['data']['data']:
             house_id = js['id']
-            if region_id == 1 and str(house_id) in tp_list:
+            if str(house_id) in tp_list:
                 continue
-            house_cont_url = 'https://rent.591.com.tw/rent-detail-{}.html'.format(js['id'])
             if not os.path.exists(r + '/{}'.format(house_id)):
                 os.makedirs(r + '/{}/jpg'.format(house_id))
+            print(house_id)
+            house_cont_url = 'https://rent.591.com.tw/rent-detail-{}.html'.format(js['id'])
             house_df = df
             house_dict = {"id": '', "house_name": '', "address": '', "price(m)": '',
                           "house_info": '', "region_name": '',
@@ -115,8 +124,11 @@ X-Requested-With: XMLHttpRequest""".format(region_id, region_id)
             res_house = ss.get(url_house, headers=headers_house)
             soup_house = BeautifulSoup(res_house.text, 'html.parser')
             # addr
-            address = soup_house.select('span[class="addr"]')[0].text
-            house_dict['address'] = address
+            try:
+                address = soup_house.select('span[class="addr"]')[0].text
+                house_dict['address'] = address
+            except IndexError as e:
+                print('no address')
             # house_content_info
             info_s = soup_house.select('div[class="detailInfo clearfix"]')[0].text + \
                      soup_house.select('div[class="leftBox"] ul[class="clearfix labelList labelList-1"]')[0].text
@@ -144,6 +156,8 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
                 headers_img = {r.split(': ')[0]: r.split(': ')[1] for r in s_img.split('\n')}
                 print(s['src'].replace('125x85.crop', '765x517.water3'))
                 url_img = s['src'].replace('125x85.crop', '765x517.water3')
+                if 'null' in url_img:
+                    continue
                 img_id = url_img.split('_')[0].split('/')[-1]
                 try:
                     res_img = ss.get(url_img, headers=headers_img)
@@ -163,8 +177,8 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
         page_init += 1
     print(city_json)
     print(len(city_json))
-    json_str = json.dumps(city_json)
-    with open(r + '/{}.json'.format(r), 'w', encoding='utf-8') as f:
-        f.write(json_str)
+    # json_str = json.dumps(city_json)
+    # with open(r + '/{}.json'.format(r), 'w', encoding='utf-8') as f:
+    #     f.write(json_str)
     # break
 
