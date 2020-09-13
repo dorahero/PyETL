@@ -11,7 +11,7 @@ schema = ["id", "house_name", "address", "price(m)", "house_info", "region_name"
 df = pd.DataFrame(columns=schema)
 region = {'台北市': 1, '新北市': 3, '桃園市': 6, '新竹市': 4,
           '新竹縣': 5, '基隆市': 2, '宜蘭縣': 21, '台中市': 8,
-          '彰化縣': 10, '苗栗縣': 7, '雲林縣': 7, '南投縣': 11,
+          '彰化縣': 10, '苗栗縣': 7, '雲林縣': 14, '南投縣': 11,
           '高雄市': 17, '台南市': 15, '嘉義市': 12, '屏東縣': 19,
           '嘉義縣': 13, '花蓮縣': 23, '台東縣': 22, '金門縣': 25,
           '澎湖縣': 24}
@@ -23,7 +23,7 @@ for i, r in enumerate(region):
     page_init = 0
     if not os.path.exists(r):
         os.makedirs(r)
-    if i < 8:
+    if i < 10:
         continue
     city_json = []
     region_id = region[r]
