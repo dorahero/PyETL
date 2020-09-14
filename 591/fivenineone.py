@@ -23,8 +23,8 @@ for i, r in enumerate(region):
     page_init = 0
     if not os.path.exists(r):
         os.makedirs(r)
-    if i < 10:
-        continue
+    # if i < 10:
+    #     continue
     city_json = []
     region_id = region[r]
     ss = requests.session()
@@ -42,14 +42,14 @@ for i, r in enumerate(region):
             print('or the end')
         # print(url)
         s = '''Connection: keep-alive
-Cookie: is_new_index=1; is_new_index_redirect=1; T591_TOKEN=i25jj8ovsqdps1ouj4gpondhl3; _ga=GA1.3.581102241.1596159674; tw591__privacy_agree=0; _ga=GA1.4.581102241.1596159674; _fbp=fb.2.1596159722085.570355555; __auc=3bbe77e3173a28c96852f6b6668; webp=1; PHPSESSID=42ffu482f5qnpni5lk10mrvl70; _gid=GA1.3.619074578.1599703039; _gid=GA1.4.619074578.1599703039; new_rent_list_kind_test=0; localTime=2; imgClick=9688505; last_search_type=1; index_keyword_search_analysis=%7B%22role%22%3A%222%22%2C%22type%22%3A1%2C%22keyword%22%3A%22%22%2C%22selectKeyword%22%3A%22%22%2C%22menu%22%3A%22%22%2C%22hasHistory%22%3A0%2C%22hasPrompt%22%3A0%2C%22history%22%3A0%7D; urlJumpIp={}; urlJumpIpByTxt=%E5%8F%B0%E5%8C%97%E5%B8%82; c10f3143a018a0513ebe1e8d27b5391c=1; user_index_role=2; user_browse_recent=a%3A5%3A%7Bi%3A0%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A8%3Bs%3A7%3A%22post_id%22%3Bi%3A121199%3B%7Di%3A1%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229811877%22%3B%7Di%3A2%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229681418%22%3B%7Di%3A3%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229750396%22%3B%7Di%3A4%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229789018%22%3B%7D%7D; _gat=1; _gat_newHousingOld=1; _dc_gtm_UA-97423186-1=1; 591_new_session=eyJpdiI6InJEQUUxMURyTnNlMnF0eFgyWDhHWVE9PSIsInZhbHVlIjoiRmVydWZRMmRIbmc4UG16dnk0TVlYdXFMNEhZN1Z2Qyt6TmpjcUFIWU9lQXRKNVNSd3NINnBxVURSUnJhVXp6aVRFMXB6YWQwaHcxaVwvWWdkcUR1Wk93PT0iLCJtYWMiOiI2OTAwNzcyNGVmYWI3ODE1ODFmMzJkNGUyNDdmOTVmNDFhNjFjNzU0MzI0ZTkyMDI0NGRmODE5MWNjNzMyNmE0In0%3D
+Cookie: is_new_index=1; is_new_index_redirect=1; T591_TOKEN=i25jj8ovsqdps1ouj4gpondhl3; _ga=GA1.3.581102241.1596159674; tw591__privacy_agree=0; _ga=GA1.4.581102241.1596159674; _fbp=fb.2.1596159722085.570355555; __auc=3bbe77e3173a28c96852f6b6668; webp=1; PHPSESSID=42ffu482f5qnpni5lk10mrvl70; _gid=GA1.3.619074578.1599703039; _gid=GA1.4.619074578.1599703039; new_rent_list_kind_test=0; localTime=2; imgClick=9688505; urlJumpIp={}; urlJumpIpByTxt=%E5%8F%B0%E5%8C%97%E5%B8%82; user_index_role=1; c10f3143a018a0513ebe1e8d27b5391c=1; DETAIL[1][9691717]=1; user_browse_recent=a%3A5%3A%7Bi%3A0%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229691717%22%3B%7Di%3A1%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%228161703%22%3B%7Di%3A2%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229735857%22%3B%7Di%3A3%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229762638%22%3B%7Di%3A4%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229350007%22%3B%7D%7D; _gat=1; _dc_gtm_UA-97423186-1=1; _gat_testUA=1; _gat_newHousing=1; _gat_newHousingAll=1; __asc=6bbe0a051748af369de93d9ef37; _gat_UA-97423186-1=1; last_search_type=1; index_keyword_search_analysis=%7B%22role%22%3A%221%22%2C%22type%22%3A1%2C%22keyword%22%3A%22%22%2C%22selectKeyword%22%3A%22%22%2C%22menu%22%3A%22%22%2C%22hasHistory%22%3A0%2C%22hasPrompt%22%3A0%2C%22history%22%3A0%7D; XSRF-TOKEN=eyJpdiI6Inc1R1VoZVliWWI1dEdUazJ6ZXVvR2c9PSIsInZhbHVlIjoicnRBVEJ2V1BNN0RWa29nMFdKbURPMlZqTWNKZ0lvXC9uV0UxemVORnNueWZSajJqanhCaFNvOEM2NEp5TkZ6N2xOSTk2akpHVE9IUUhUcU1pUENSVzd3PT0iLCJtYWMiOiI2MTZmOTdkYmQ1N2FhNzIyZmMzMDcxOWZhYTQxNTkxMjRmN2Q4YjM4ZTcwOGNkMzk0MTBhOGIzMjRhNTM4ZmY2In0%3D; 591_new_session=eyJpdiI6IkFhT09xTXR3NUFqVHFveEJcL0V0RjNnPT0iLCJ2YWx1ZSI6ImJSd0g0N0l0aXJyVVA5S0VvOGs2elRKQ3dadXU4d21wRVlHOGUybWZNWmYzOEJXb3VMckFJTGRhMTVFOFE5QUJGWUdiRExMTzlhdzluZGZ0bUhRWm9RPT0iLCJtYWMiOiJlOGNmNTNhMzc3MDQyZDI5NjZkNmNhNTYwMzYxNjI3YmEzNDdhNGIwZGE3NzRmYjAwYWNmNDBhM2JkMjYyNzZmIn0%3D
 Host: rent.591.com.tw
 Referer: https://rent.591.com.tw/?kind=0&region={}
 Sec-Fetch-Dest: empty
 Sec-Fetch-Mode: cors
 Sec-Fetch-Site: same-origin
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36
-X-CSRF-TOKEN: vnuOJQFUHijhCcK2m1NVh50haMkFu9b9W5GDGhfA
+X-CSRF-TOKEN: huoUThpV7d4JCFNTKTnuQh6U7H9jZSAO7SH0SinH
 X-Requested-With: XMLHttpRequest'''.format(region_id, region_id)
 #         s = '''Connection: keep-alive
 # Cookie: is_new_index=1; is_new_index_redirect=1; T591_TOKEN=i25jj8ovsqdps1ouj4gpondhl3; _ga=GA1.3.581102241.1596159674; tw591__privacy_agree=0; _ga=GA1.4.581102241.1596159674; _fbp=fb.2.1596159722085.570355555; __auc=3bbe77e3173a28c96852f6b6668; webp=1; PHPSESSID=42ffu482f5qnpni5lk10mrvl70; _gid=GA1.3.619074578.1599703039; _gid=GA1.4.619074578.1599703039; new_rent_list_kind_test=0; localTime=2; imgClick=9688505; last_search_type=1; index_keyword_search_analysis=%7B%22role%22%3A%222%22%2C%22type%22%3A1%2C%22keyword%22%3A%22%22%2C%22selectKeyword%22%3A%22%22%2C%22menu%22%3A%22%22%2C%22hasHistory%22%3A0%2C%22hasPrompt%22%3A0%2C%22history%22%3A0%7D; user_index_role=1; urlJumpIp={}; urlJumpIpByTxt=%E5%9F%BA%E9%9A%86%E5%B8%82; user_browse_recent=a%3A5%3A%7Bi%3A0%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229684598%22%3B%7Di%3A1%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229669233%22%3B%7Di%3A2%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229691641%22%3B%7Di%3A3%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A8%3Bs%3A7%3A%22post_id%22%3Bi%3A121199%3B%7Di%3A4%3Ba%3A2%3A%7Bs%3A4%3A%22type%22%3Bi%3A1%3Bs%3A7%3A%22post_id%22%3Bs%3A7%3A%229803072%22%3B%7D%7D; c10f3143a018a0513ebe1e8d27b5391c=1; _gat=1; _dc_gtm_UA-97423186-1=1; _gat_UA-97423186-1=1; 591_new_session=eyJpdiI6IlcwYzR0WmtmajVHTlhTYmJldGtZSHc9PSIsInZhbHVlIjoidHFTRTRvQ2QxQ1k3RHVUSWtndUhKQmUzNnpoZFlMaWNodDJNaHd1cjc2Z3NjWXNqTnNHalRoRHE3NGkzb3NRTGRQc0pXTXdcL21mSnZyYUJUREtpQ2lnPT0iLCJtYWMiOiJiZDQ3YjI1YjY1NWQxMjEwYTk2NGYxOWRmZGYwZDBkZDQ2MmZlMzdhNzc0ZmQ3OTQ0ZDdhNWU1MTM2YzNmYWY0In0%3D
@@ -81,7 +81,9 @@ X-Requested-With: XMLHttpRequest'''.format(region_id, region_id)
         # # soup = BeautifulSoup(res.text, 'html.parser')
         tp_list = os.listdir('./{}'.format(r))
         print(len(tp_list))
-        if len(tp_list) >= 1000:
+        if len(tp_list) >= 1000 and i > 0:
+            break
+        elif len(tp_list) >= 10000:
             break
         for js in json_data['data']['data']:
             house_id = js['id']
@@ -160,7 +162,7 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
                     continue
                 img_id = url_img.split('_')[0].split('/')[-1]
                 try:
-                    res_img = ss.get(url_img, headers=headers_img)
+                    res_img = ss.get(url_img, headers=headers_img, timeout=1)
                     img_content = res_img.content
                     img_name = r + '/{}/jpg/{}'.format(house_id, img_id)
                     with open(img_name + '.jpg', 'wb') as f:
@@ -168,10 +170,16 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
                 except Exception as e:
                     print(e)
                     print('no picture')
-            print(house_dict)
+            # print(house_dict)
             json_h_str = json.dumps(house_dict)
-            with open(r + '/{}/{}.json'.format(house_id, house_id), 'w', encoding='utf-8') as f:
-                f.write(json_h_str)
+            try:
+                json_f = json_h_str.encode("utf-8").decode("unicode-escape").replace('\n', '')
+                print(json_f)
+                with open(r + '/{}/{}.json'.format(house_id, house_id), 'w', encoding='utf-8') as f:
+                    f.write(json_f)
+            except Exception as e:
+                print(e)
+                print('encoding error')
             city_json.append(house_dict)
         time.sleep(3)
         page_init += 1
