@@ -83,7 +83,7 @@ X-Requested-With: XMLHttpRequest'''.format(region_id, region_id)
         print(len(tp_list))
         if len(tp_list) >= 1000 and i > 0:
             break
-        elif len(tp_list) >= 10000:
+        elif len(tp_list) >= 5000:
             break
         for js in json_data['data']['data']:
             house_id = js['id']

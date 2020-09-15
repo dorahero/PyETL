@@ -24,7 +24,7 @@ for js in j_file:
     try:
         print(js)
         with open(js, 'r', encoding='utf-8') as f:
-            ff = f.read().replace('\\', '').replace('.', '').replace('-', '')
+            ff = f.read().replace('\\', '')
             fff = r.sub('', ff)
             j = json.loads(fff)
         print(j)
@@ -43,7 +43,7 @@ for js in j_file:
         # house_url
         house_dict.update({'房屋url': j['house_url']})
         # near life
-        j_near = j['near_life'].replace(' ', '').replace('：', ' ').replace(':', ' ')
+        j_near = j['near_life'].replace('.', '').replace('-', '').replace(' ', '').replace('：', ' ').replace(':', ' ')
         tmp_near = []
         for near in near_col:
             a = len(j_near)
@@ -52,8 +52,8 @@ for js in j_file:
             if a != b:
                 tmp_near.append(near)
         near_list = [i for i in j_near.split(' ')]
-        print(tmp_near)
-        print(near_list[1:])
+        # print(tmp_near)
+        # print(near_list[1:])
         near_dict = {tmp_near[i]: j for i, j in enumerate(near_list[1:])}
         print(near_dict)
         house_dict.update(near_dict)
@@ -79,15 +79,13 @@ for js in j_file:
         # r = pattern.match(j_info)
         info_list = [i for i in j_info.split(' ')]
         if '格局' in tmp:
-            try:
-                if int(info_list[1:][0][0]) > 0:
-                    tmp = tmp
-            except Exception as e:
-                print(e)
+            if '坪' in info_list[1:][0]:
+                tmp = tmp
+            else:
                 tmp.remove('格局')
                 tmp.insert(0, '格局')
-        # print(info_list[1:])
-        # print(tmp)
+        print(info_list[1:])
+        print(tmp)
         house_info_dict = {tmp[i]: j for i, j in enumerate(info_list[1:])}
         drop_key = []
         for key in house_info_dict:
@@ -102,6 +100,8 @@ for js in j_file:
 
         count += 1
         # if len(info_list[1:]) != len(tmp):
+        #     break
+        # if count == 10:
         #     break
     except Exception as e:
         print(e)
