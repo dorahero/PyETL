@@ -12,5 +12,8 @@ python hw_104_jinja2.py
 
 # Step 2:
 - input `keyword`
-![](./a104/png/1_start.PNG )
+![](./png/1_start.PNG )
 # Step 3:
+- input `crawling`
+![](./png/2_loading.PNG )
+
